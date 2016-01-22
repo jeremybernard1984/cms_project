@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - db609093808@db609093808.db.1and1.com" uuid="f664bb06-c3ac-4409-bf0d-628f0b0550e4">
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+      <user-name>dbo609093808</user-name>
+      <ssh-properties>
+        <enabled>true</enabled>
+        <proxy-host>s601174839.onlinehome.fr</proxy-host>
+        <proxy-port>22</proxy-port>
+        <secret-storage>master_key</secret-storage>
+        <user>u83004708</user>
+        <use-password>true</use-password>
+      </ssh-properties>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="1and1">
+    <serverData>
+      <paths name="1and1">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/app/cache" />
+            <excludedPath path="/web/upload/tmp" />
+            <excludedPath path="/app/logs" />
+            <excludedPath path="/web/upload" />
+            <excludedPath path="/web/bower_components" />
+            <excludedPath path="/app/config/parameters.yml" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
