@@ -1,0 +1,35 @@
+/*------------------LOADER------------------ */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index:10;
+}
+
+#chargement {
+    font-size: 2em;
+    text-align: center;
+    position: fixed;
+    width: 650px;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -300px;
+    color: #fff;
+    z-index:20;
+}
+#chargement-infos {
+    text-align:right;
+    white-space: nowrap;
+    display: block;
+    height: 4px;
+    Zborder-bottom:4px solid #fff;
+    width: 0%;
+}
+#page-wrapper {
+    visibility: hidden;
+}
+/*---------- */

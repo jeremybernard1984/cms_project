@@ -1,0 +1,28 @@
+{% extends 'PointWebAdminBundle::base.html.twig' %}
+{% block content_right %}
+    <h1>Liste des categories</h1>
+    {% for message in app.session.flashbag.get('info') %}
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="btAjout">
+        <a href="{{ path('admin_product_category_new') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Ajouter</a>
+    </div>
+        <div class="sub_cat">
+            {% macro list(entities,deleteForms,pictures) %}
+                    {% for entity in entities %}
+                        <ol>
+                            <li>
+                                {% include 'PointWebProductBundle:ProductCategory:sub_cat_table.html.twig' %}
+                                {% if entity.__children|length != 0 %}
+                                    {{ _self.list(entity.__children,deleteForms,pictures) }}
+                                {% endif %}
+                            </li>
+                        </ol>
+                    {% endfor %}
+            {% endmacro %}
+            {{ _self.list(entities,deleteForms,pictures) }}
+        </div>
+{% endblock %}

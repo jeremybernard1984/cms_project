@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}ESPACE D'ADMINISTRATION{% endblock %}</title>
+    {{ render(controller("PointWebAdminBundle:Default:headerAdmin")) }}
+    <style>
+
+    </style>
+</head>
+<body style="background: #fff;">
+<div id="wrapper">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Catégorie
+        </div>
+        <div class="panel-body">
+
+            <div class="col-lg-8">
+                <div class="col-lg-12">
+                    <label>Titre :</label>
+                    {{ entity.title }}
+                </div>
+                <div class="col-lg-12">
+                    <label>Description :</label>
+                    {{ entity.description|raw }}
+                </div>
+                <div class="col-lg-12">
+                    <label>En ligne :</label>
+                    {% if entity.online %}Oui{% else %}Non{% endif %}
+                </div>
+                {% if entity.pictures|length >0 %}
+                    <div class="col-lg-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Fichiers</div>
+                            <div class="panel-body">
+                                <div id="gallery">
+                                    {% for picture in entity.pictures %}
+                                        <div class="img-view" data-toggle="tooltip" data-placement="top" title="{{ picture.name }} : {{ picture.description }}">
+                                            <img alt="{{ picture.name }}" src="{{ asset(picture.getWebPath(base)) }}"
+                                                 data-image="{{ asset(picture.getWebPath(base)) }}">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a href="javascript:parent.jQuery.fancybox.close();">Fermer la fenêtre</a>
+        </div>
+    </div>
+
+</div>
+<!-- /#wrapper -->
+{% block javascripts %}
+    {% include 'PointWebAdminBundle::_js.html.twig' %}
+{% endblock %}
+</body>
+<footer>
+    {% block footer %}
+
+    {% endblock %}
+</footer>
+</html>

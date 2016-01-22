@@ -1,0 +1,8 @@
+point_web_map_admin:
+    resource: "@PointWebMapBundle/Resources/config/routing/admin_map.yml"
+    prefix:   /admin/map
+
+point_web_map:
+    resource: "@PointWebMapBundle/Resources/config/routing/map.yml"
+    prefix:   /map
+

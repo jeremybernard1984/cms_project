@@ -1,0 +1,11 @@
+{% block root %}
+    {% if item.breadcrumbsArray %}
+        {%- for  link in item.breadcrumbsArray %}
+            {%- if loop.index == 1 %}<a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
+            {%- elseif not loop.last %}<a href="{{ link.uri }}">{{ link.label | trans }}</a>
+            {%- else %}
+                <a href="{{ link.uri }}" class="current">{{ link.label | trans }}</a>
+            {%- endif %}
+        {%- endfor %}
+    {% endif %}
+{% endblock %}

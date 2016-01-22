@@ -1,0 +1,7 @@
+point_web_page_admin:
+    resource: "@PointWebPageBundle/Resources/config/routing/admin_page.yml"
+    prefix:   /admin/page
+
+point_web_page:
+    resource: "@PointWebPageBundle/Resources/config/routing/page.yml"
+    prefix:   /page

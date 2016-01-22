@@ -1,0 +1,30 @@
+
+{{ render(controller("PointWebAppBundle:Default:header")) }}
+
+<body>
+{% block body %}
+
+        {% block menu %}
+            {% include 'PointWebAppBundle::_menu.html.twig' %}
+        {% endblock %}
+        {% block slider %}
+
+        {% endblock %}
+        <!-- Page Content -->
+        <div class="container content">
+
+            {% block content %}
+
+                {% include 'PointWebAppBundle:Default:index.html.twig' %}
+            {% endblock %}
+            {% block footer %}
+                {% include 'PointWebAppBundle::_footer.html.twig' %}
+            {% endblock %}
+        </div>
+        <!-- /.container -->
+    {% block javascripts %}
+        {% include 'PointWebAppBundle::_js.html.twig' %}
+    {% endblock %}
+{% endblock %}
+</body>
+</html>

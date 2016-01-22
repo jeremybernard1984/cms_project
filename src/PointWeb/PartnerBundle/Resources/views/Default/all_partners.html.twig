@@ -1,0 +1,75 @@
+{% extends 'PointWebAppBundle::base.html.twig' %}
+{% block slider %}
+
+{% endblock %}
+{% block content %}
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    {{ current_menu.title }}
+                </h1>
+
+                {#{ knp_menu_render('breadcrumb', {'currentClass': 'active'}) }#}
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('point_web_app_homepage')}}">Accueil</a></li>
+                    <li class="active">{{ current_menu.title }}</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+    <div class="row">
+        <section class="filter-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="filter-container isotopeFilters">
+                            <ul class="list-inline filter">
+                                <li class="active"><a href="#" data-filter="*">All </a><span>/</span></li>
+                                {% for category in categories %}
+                                    <li><a href="#" data-filter=".filter{{ category.title }}">{{ category.title }}</a><span>/</span></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio-section port-col">
+            <div class="container">
+                <div class="row">
+                    <div class="isotopeContainer">
+                    {% for entity in entities %}
+                        <div class="col-sm-3 isotopeSelector filter{{ entity.partnerCategory }}">
+                            <article class="">
+                                <figure>
+                                    <img class="img-responsive" src="../../web/{{ entity.image.AssetPath }}" alt="{{ entity.image.name }}">
+                                    <div class="overlay-background">
+                                        <div class="inner"></div>
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="inner-overlay">
+                                            <div class="inner-overlay-content with-icons">
+                                                <i class="fa fa-search"></i>
+                                                <a href="#"><i class="fa fa-link"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </figure>
+                                <div class="article-title"><a href="#">{{ entity.title }}</a></div>
+                            </article>
+                        </div>
+                   {% endfor %}
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- /4 Column Portfolio -->
+    </div> <!--end row -->
+<!-- /.row -->
+{% endblock %}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}ESPACE D'ADMINISTRATION{% endblock %}</title>
+    {{ render(controller("PointWebAdminBundle:Default:headerAdmin")) }}
+    <style>
+        .panel-heading, .panel-footer{
+            text-align: center;font-weight:bold;
+        }
+    </style>
+</head>
+<body style="background: #fff;">
+<div id="wrapper">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Message
+        </div>
+        <div class="panel-body">
+
+            <div class="col-lg-12">
+                <div class="col-lg-12">
+                    <label>Nom :</label>
+                    {{ entity.lastname }}
+                </div>
+                <div class="col-lg-12">
+                    <label>Prénom :</label>
+                    {{ entity.firstname }}
+                </div>
+                <div class="col-lg-12">
+                    <label>Téléphone :</label>
+                    {{ entity.phone }}
+                </div>
+                <div class="col-lg-12">
+                    <label>Email :</label>
+                    {{ entity.email }}
+                </div>
+                <div class="col-lg-12">
+                    <label>Adresse :</label>
+                    {{ entity.address }}<br>
+                    {{ entity.zipCode }}<br>
+                    {{ entity.city }}
+                </div>
+                <div class="col-lg-12">
+                    <label>Message :</label>
+                    {{ entity.message|raw }}
+                </div>
+                <div class="col-lg-12">
+                    <label>Date de création :</label>
+                    {{ entity.createDate|date('d-m-Y') }}
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a href="javascript:parent.jQuery.fancybox.close();">Fermer la fenêtre</a>
+        </div>
+    </div>
+
+</div>
+<!-- /#wrapper -->
+{% block javascripts %}
+    {% include 'PointWebAdminBundle::_js.html.twig' %}
+{% endblock %}
+</body>
+<footer>
+    {% block footer %}
+
+    {% endblock %}
+</footer>
+</html>

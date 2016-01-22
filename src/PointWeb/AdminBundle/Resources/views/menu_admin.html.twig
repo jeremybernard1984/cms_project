@@ -1,0 +1,70 @@
+<li {% if app.request.attributes.get('_route') starts with 'point_web_admin_homepage' %}class="active"{% endif %}>
+    <a href="{{ path('point_web_admin_homepage') }}"><i class="fa fa-home fa-fw"></i> {{ "Dashboard" }}</a>
+</li>
+<li {% if app.request.attributes.get('_route') starts with 'admin_menu' %}class="active"{% endif %}>
+    <a href="{{ path('admin_menu') }}"><i class="fa fa-sitemap fa-fw"></i> {{ "Menu" }}</a>
+</li>
+{% if reglage.menuPage %}
+<li {% if app.request.attributes.get('_route') starts with 'admin_page' %}class="active"{% endif %}>
+    <a href="{{ path('admin_page') }}"><i class="fa fa-file-o fa-fw"></i> {{ "Pages" }}</a>
+</li>
+{% endif %}
+{% if reglage.menuProduct %}
+<li class="{% if app.request.attributes.get('_route') starts with 'admin_product' or app.request.attributes.get('_route') starts with 'admin_category' %}active{% endif %}">
+    <a href="#"><i class="fa fa-shopping-cart fa-fw"></i> {{ "Produits" }} <span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+        <li {% if app.request.attributes.get('_route') starts with 'admin_product' %}class="active"{% endif %}><a
+                    href="{{ path('admin_product') }}"><i class="fa fa-shopping-cart fa-fw"></i> {{ "Produits" }}</a></li>
+        <li {% if app.request.attributes.get('_route') starts with 'admin_product_category' %}class="active"{% endif %}><a
+                    href="{{ path('admin_product_category') }}"><i class="fa fa-shopping-cart fa-fw"></i> {{ "Catégories" }}</a></li>
+    </ul>
+</li>
+{% endif %}
+{% if reglage.menuNews %}
+<li {% if app.request.attributes.get('_route') starts with 'admin_news' %}class="active"{% endif %}>
+    <a href="{{ path('admin_news') }}"><i class="fa fa-newspaper-o fa-fw"></i> {{ "News" }}</a>
+</li>
+{% endif %}
+{% if reglage.menuPartner %}
+<li {% if app.request.attributes.get('_route') starts with 'admin_partner' %}class="active"{% endif %}>
+    <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> {{ "Partenaires" }} <span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+        <li {% if app.request.attributes.get('_route') starts with 'admin_partner' %}class="active"{% endif %}><a
+                    href="{{ path('admin_partner') }}"><i class="fa fa-graduation-cap fa-fw"></i> {{ "Partenaires" }}</a></li>
+        <li {% if app.request.attributes.get('_route') starts with 'admin_partner_category' %}class="active"{% endif %}><a
+                    href="{{ path('admin_partner_category') }}"><i class="fa fa-graduation-cap fa-fw"></i> {{ "Catégories" }}</a></li>
+    </ul>
+</li>
+{% endif %}
+{% if reglage.menuGuestBook %}
+<li {% if app.request.attributes.get('_route') starts with 'admin_guestbook' %}class="active"{% endif %}>
+    <a href="{{ path('admin_guestbook') }}"><i class="fa fa-book fa-fw"></i> {{ "Livre d'or" }}</a>
+</li>
+{% endif %}
+{% if reglage.menuFaq %}
+<li {% if app.request.attributes.get('_route') starts with 'admin_faq' %}class="active"{% endif %}>
+    <a href="{{ path('admin_faq') }}"><i class="fa fa-question-circle fa-fw"></i> {{ "F.A.Q" }}</a>
+</li>
+{% endif %}
+{% if reglage.menuGallery %}
+<li {% if app.request.attributes.get('_route') starts with 'admin_gallery' %}class="active"{% endif %}>
+    <a href="{{ path('admin_gallery') }}"><i class="fa fa-photo fa-fw"></i> {{ "Galeries" }}</a>
+</li>
+{% endif %}
+{% if reglage.menuMap %}
+<li {% if app.request.attributes.get('_route') starts with 'admin_map' %}class="active"{% endif %}>
+    <a href="{{ path('admin_map') }}"><i class="fa fa-map-marker fa-fw"></i> {{ "Maps Google" }}</a>
+</li>
+{% endif %}
+{% if reglage.menuFolder %}
+<li {% if app.request.attributes.get('_route') starts with 'admin_folder' %}class="active"{% endif %}>
+    <a href="{{ path('admin_folder') }}"><i class="fa fa-folder fa-fw"></i> {{ "Gestion documentaire" }}</a>
+</li>
+{% endif %}
+<li {% if app.request.attributes.get('_route') starts with 'admin_contact' %}class="active"{% endif %}>
+    <a href="{{ path('admin_contact') }}"><i class="fa fa-comments-o fa-fw"></i> {{ "Contact" }}</a>
+</li>
+
+<li {% if app.request.attributes.get('_route') starts with 'admin_user' %}class="active"{% endif %}>
+    <a href="{{ path('admin_user') }}"><i class="fa fa-group fa-fw"></i> {{ "Utilisateurs" }}</a>
+</li>

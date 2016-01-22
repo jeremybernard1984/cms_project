@@ -1,0 +1,52 @@
+{% extends 'PointWebAdminBundle::base.html.twig' %}
+
+{% block content_right %}
+
+    <h1>Liste des produits</h1>
+    {% for message in app.session.flashbag.get('info') %}
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+    <a style="float: left" href="{{ path('admin_product_category') }}" class="btn btn-primary">Modifier les catégories</a>
+    <div class="btAjout">
+        <a href="{{ path('admin_product_new') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Ajouter</a>
+    </div>
+    {% if entitiesSansCat|length > 0 %}
+        {% include 'PointWebProductBundle:Product:products_table.html.twig' %}
+    {% endif %}
+    <div class="panel-group" id="accordion">
+    {% macro list(categories,listProducts,deleteForms) %}
+        {% for category in categories %}
+            {% if category.lvl == 0 %}
+                    <p class="list_cat_title">Liste des catégories : {{ category.title }}</p>
+            {% else %}
+                {% if category.lvl == 1 %}
+                    <div class="panel panel-primary" style="margin-top: 5px">
+                {% else %}
+                    <div class="panel panel-primary "
+                         style="margin: 5px {{ category.lvl }}0px;">
+                {% endif %}
+                    <div class="panel-heading {% if category.lvl != 1 %}opacity70{% endif %}">
+                        <h3 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ category.id }}">
+                                {{ category.title }}
+                                <i class="fa fa-bars" style="float: right"></i>
+                            </a>
+                        </h3>
+                    </div>
+                    <div id="collapse-{{ category.id }}" class="panel-collapse collapse out" data-parent="#accordion">
+                        {% include 'PointWebProductBundle:Product:sub_products_table.html.twig' %}
+                    </div>
+                </div>
+            {% endif %}
+            {% if category.__children|length != 0 %}
+                {{ _self.list(category.__children,listProducts,deleteForms) }}
+            {% endif %}
+        {% endfor %}
+
+    {% endmacro %}
+    {{ _self.list(categories,listProducts,deleteForms) }}
+    </div>
+{% endblock %}

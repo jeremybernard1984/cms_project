@@ -1,0 +1,85 @@
+services:
+#    point_web_admin.example:
+#        class: PointWeb\AdminBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+
+
+    gedmo.listener.blameable:
+        class: Gedmo\Blameable\BlameableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+
+    gedmo.listener.tree:
+        class: Gedmo\Tree\TreeListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+
+    gedmo.listener.translatable:
+        class: Gedmo\Translatable\TranslatableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+            - [ setDefaultLocale, [ %locale% ] ]
+            - [ setTranslationFallback, [ false ] ]
+
+    gedmo.listener.timestampable:
+        class: Gedmo\Timestampable\TimestampableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+
+    gedmo.listener.sluggable:
+        class: Gedmo\Sluggable\SluggableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+
+    gedmo.listener.sortable:
+        class: Gedmo\Sortable\SortableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+
+    gedmo.listener.loggable:
+        class: Gedmo\Loggable\LoggableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+
+    gedmo.listener.softdeleteable:
+        class: Gedmo\SoftDeleteable\SoftDeleteableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+
+
+    acme_main.menu_builder:
+        class: PointWeb\AppBundle\Menu\MenuBuilder
+        arguments: ['@knp_menu.factory', '@doctrine.orm.entity_manager']
+    # Le menu du front avec sous niveau et stylé pour bootstrap
+    acme_main.menu.main:
+        class: Knp\Menu\MenuItem
+        factory_service: acme_main.menu_builder
+        factory_method: createMainMenu
+        tags:
+            - { name: knp_menu.menu, alias: main }
+    # Le breadcrumb qui va avec
+    acme_main.menu.breadcrumb:
+        class: Knp\Menu\MenuItem
+        factory_service: acme_main.menu_builder # the menu builder service above
+        factory_method: createBreadcrumbMenu # the method name to generate theequest
+        arguments: ["@request"]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: breadcrumb } # The alias is used in the template

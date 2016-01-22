@@ -1,0 +1,118 @@
+{% extends 'PointWebAppBundle::base.html.twig' %}
+{% block content %}
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                {{ current_menu.title }}
+            </h1>
+            {#{ knp_menu_render('breadcrumb', {'currentClass': 'active'}) }#}
+            <ol class="breadcrumb">
+                <li><a href="{{ path('point_web_app_homepage')}}">Accueil</a></li>
+                <li class="active">{{ current_menu.title }}</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        {% for entity in entities %}
+            {% if loop.index0 % 2 == 0 %}
+            <div class="row">
+            {% endif %}
+                <div class="col-sm-1 text-right" style="padding: 0">
+                    <div class="round round-lg hollow color{{ entity.notation }}">
+                       <span class="glyphicon glyphicon-star"></span><strong> {{ entity.notation }}</strong><sub>/5</sub>
+                    </div>
+                </div><!-- /col-sm-1 -->
+                <div class="col-sm-5">
+                    <div class="panel panel_debord panel-default">
+                        <div class="panel-heading">
+                            <strong>{{ entity.title }} {{ entity.firstname }}</strong>
+                            <span class="text-muted">
+                                {% if entity.createDate %}posté le {{ entity.createDate|date('d-m-Y') }}{% endif %}
+                            </span>
+                        </div>
+                        <div class="panel-body">
+                            {{ entity.comment|raw }}
+                        </div><!-- /panel-body -->
+                    </div><!-- /panel panel-default -->
+                </div><!-- /col-sm-5 -->
+            {% if loop.index0 % 2 == 1 or loop.last %}
+            </div>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+<div class="row">
+    {% include 'PointWebAppBundle::_pager_classic.html.twig' %}
+</div>
+
+    <!-- Formulaire d'envoi de commentaires -->
+    <div class="row">
+        <h3 class="title-page">Ajouter un commentaire</h3>
+
+        <div class="well well-sm">
+            {% for message in app.session.flashbag.get('info') %}
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+        <div class="row">
+            {{ form_start(form) }}
+            <div class="col-md-6">
+                <div class="form-group">
+                    <strong>(*)</strong> Champs obligatoires
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.title) }}
+
+                        {{ form_errors(form.title) }}
+                        {{ form_widget(form.title) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.firstname) }}
+
+                        {{ form_errors(form.firstname) }}
+                        {{ form_widget(form.firstname) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.email) }}
+                    <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                    </span>
+                        {{ form_widget(form.email) }}
+                    </div>
+                    {{ form_errors(form.email) }}
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form_label(form.notation) }}
+                        {{ form_errors(form.notation) }}
+                        {{ form_widget(form.notation) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.comment) }}
+                        {{ form_errors(form.comment) }}
+                    {{ form_widget(form.comment, { 'attr': {'rows': '5'} }) }}
+                </div>
+
+            </div>
+            <div class="col-md-12 text-center">
+                {{ form_widget(form.submit) }}
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

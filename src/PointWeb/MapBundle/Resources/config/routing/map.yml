@@ -1,0 +1,7 @@
+all_maps:
+    path:     /all_maps
+    defaults: { _controller: "PointWebMapBundle:Default:allPartners" }
+
+map_detail:
+    path:     /{id}/map_detail
+    defaults: { _controller: PointWebMapBundle:Default:partnerDetail }

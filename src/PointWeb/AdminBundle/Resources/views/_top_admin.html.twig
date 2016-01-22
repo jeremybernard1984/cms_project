@@ -1,0 +1,51 @@
+<div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <div class="brand_menu_top">
+    <img class="logo_menu_top" src="{{ absolute_url(asset('images/logo_cms_project.png')) }}" alt="CMS Project">
+        <span class="txt_menu_top">CMS-project : <span style="color: #fff">{{ reglage.clientName }}</span> </span>
+    </div>
+</div>
+<!-- /.navbar-header -->
+
+<ul class="nav navbar-top-links navbar-right">
+    <!-- /.dropdown -->
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="fa fa-cogs fa-fw"></i>  <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-user">
+            {% if roleSuperAdmin %}
+            <li>
+                <a href="{{ path('admin_reglage_edit', {'id': '1'}) }}">
+                    <i class="fa fa-gear fa-fw"></i>{{ "Réglages du site" }}
+                </a>
+            </li>
+
+            <li class="divider"></li>
+            {% endif %}
+            <li>
+                <a title="Éditer" href="{{ path('admin_user_edit', {'id':userId}) }}">
+                    <i class="fa fa-user"></i> Éditer le profile
+                </a>
+            </li>
+            <li>
+                {% block body_head_login %}
+                    <a href="{{ path("fos_user_security_logout") }}">
+                        <i class="fa fa-sign-out fa-fw"></i> Déconnexion
+                    </a>
+                {% endblock %}
+            </li>
+        </ul>
+        <!-- /.dropdown-user -->
+    </li>
+    <!-- /.dropdown -->
+    <li class="dropdown">
+        <a href="{{ path("point_web_app_homepage") }}"><i class="fa fa-sign-out fa-fw"></i></a>
+    </li>
+</ul>
+<!-- /.navbar-top-links -->

@@ -1,0 +1,31 @@
+<!-- Header Carousel -->
+<header id="carouselHeader" class="carousel slide">
+    {% if entity.pictures|length >0 %}
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        {% for picture in entity.pictures %}
+            <li data-target="#carouselHeader" data-slide-to="{{  loop.index0 }}" {% if loop.index0 == 0 %}class ="active"{% endif %}></li>
+        {% endfor %}
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        {% for picture in entity.pictures %}
+        <div class="item {% if loop.index0 == 0 %}active{% endif %}">
+            <div class="fill" style="background-image:url('{{ asset(picture.getWebPath(base)) }}');"></div>
+            <div class="carousel-caption">
+                <h2>{{ picture.name }}</h2>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carouselHeader" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#carouselHeader" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+    {% endif %}
+</header>

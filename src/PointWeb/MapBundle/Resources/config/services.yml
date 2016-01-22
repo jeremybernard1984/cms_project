@@ -1,0 +1,4 @@
+services:
+#    point_web_map.example:
+#        class: PointWeb\MapBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

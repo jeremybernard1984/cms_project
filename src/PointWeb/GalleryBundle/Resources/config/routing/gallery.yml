@@ -1,0 +1,7 @@
+all_galleries:
+    path:     /all_galleries
+    defaults: { _controller: "PointWebGalleryBundle:Default:allGalleries" }
+
+gallery_detail:
+    path:     /{id}/gallery_detail
+    defaults: { _controller: "PointWebGalleryBundle:Default:galleryDetail" }

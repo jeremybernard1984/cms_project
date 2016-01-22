@@ -1,0 +1,73 @@
+{% extends 'PointWebAdminBundle::base.html.twig' %}
+
+{% block content_right %}
+    <h1>Modification du commentaire</h1>
+    {{ form_start(form, {'attr': {'class':'form-horizontal' }}) }}
+    <fieldset>
+
+        <div class="form-group">
+            <div class="col-lg-2 text-right">
+                {{ form_label(form.title) }}
+            </div>
+            <div class="col-lg-10">
+                {{ form_errors(form.title) }}
+                {{ form_widget(form.title) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2 text-right">
+                {{ form_label(form.firstname) }}
+            </div>
+            <div class="col-lg-10">
+                {{ form_errors(form.firstname) }}
+                {{ form_widget(form.firstname) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2 text-right">
+                {{ form_label(form.email) }}
+            </div>
+            <div class="col-lg-10">
+                {{ form_errors(form.email) }}
+                {{ form_widget(form.email) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2 text-right">
+                {{ form_label(form.comment) }}
+            </div>
+            <div class="col-lg-10 text-right">
+                {{ form_errors(form.comment) }}
+                {{ form_widget(form.comment) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2 text-right">
+                {{ form_label(form.notation) }}
+            </div>
+            <div class="col-lg-10">
+                {{ form_errors(form.notation) }}
+                {{ form_widget(form.notation) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2 text-right">
+                {{ form_label(form.online) }}
+            </div>
+            <div class="col-lg-10">
+                {{ form_errors(form.online) }}
+                {{ form_widget(form.online) }}
+            </div>
+        </div>
+
+    </fieldset>
+
+
+    <div class="row submitBt">
+        <div style="float: left">
+            <a href="{{ path('admin_guestbook') }}" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Retour à la liste</a>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+

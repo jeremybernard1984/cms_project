@@ -1,0 +1,27 @@
+{% extends 'PointWebAdminBundle::base.html.twig' %}
+
+{% block content_right %}
+    <h1>Ajout des réglages</h1>
+    {{ form_start(form, {'attr': {'class':'form-horizontal' }}) }}
+    <fieldset>
+
+        <div class="form-group">
+            {{ form_label(form.clientName) }}
+            <div class="col-lg-10">
+                {{ form_errors(form.clientName) }}
+                {{ form_widget(form.clientName) }}
+            </div>
+        </div>
+
+
+
+    </fieldset>
+
+
+    <div class="col-lg-12 submitBt">
+        <div style="float: left">
+            <a href="{{ path('admin_reglage') }}" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Retour à la liste</a>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

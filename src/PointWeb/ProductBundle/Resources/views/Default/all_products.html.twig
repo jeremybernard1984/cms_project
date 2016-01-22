@@ -1,0 +1,61 @@
+{% extends 'PointWebAppBundle::base.html.twig' %}
+{% block slider %}
+
+{% endblock %}
+{% block content %}
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                {{ current_menu.title }}
+                <small>Nos voyages</small>
+            </h1>
+
+            {#{ knp_menu_render('breadcrumb', {'currentClass': 'active'}) }#}
+            <ol class="breadcrumb">
+                <li><a href="{{ path('point_web_app_homepage')}}">Accueil</a></li>
+                <li class="active">{{ current_menu.title }}</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    {% macro list(categories,listProducts) %}
+        {% for category in categories %}
+            {% if category.lvl != 0 %}
+                <div class="row"{% if category.lvl != 1 %} style ="margin: 5px {{ category.lvl }}8px;border: 1px solid #ccc" {% endif %}>
+                    <div class="col-md-12">
+                        <h3 class="title-page">{{ category.title }}</h3>
+                    </div>
+
+                    {% for entity in listProducts %}
+                    {% if entity.ProductCategory == category.title %}
+                        <div class="col-md-3 listing_all">
+                            <div class="img-portfolio-col3">
+                                <a href="{{ path('product_detail', {'id':entity.id}) }}">
+                                    {% if entity.pictures|length >0 %}
+                                        <img class="img-responsive img-hover" src="{{ asset(entity.pictures[0].getWebPath(base)) }}" alt="{{ entity.pictures[0].name }}">
+                                    {% else %}
+                                        <img class="img-responsive img-hover" src="{{ asset('images/sans_image_700x450.jpg') }}" alt="http://placehold.it/700x450">
+                                    {% endif %}
+                                </a>
+                            </div>
+                            <h4>
+                                <a href="{{ path('product_detail', {'id':entity.id}) }}">{{ entity.title }}</a>
+                            </h4>
+                            <p>{{ entity.resum | truncate(200, false, '...') | raw }}</p>
+                        </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+            {% endif %}
+            {% if category.__children|length != 0 %}
+                {{ _self.list(category.__children,listProducts) }}
+            {% endif %}
+        {% endfor %}
+
+        {% endmacro %}
+        {{ _self.list(categories,listProducts) }}
+
+{% endblock %}

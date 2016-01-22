@@ -1,0 +1,1 @@
+{"admin_menu_rempli_pathid":{"tokens":[["variable","\/","[^\/]++","entitySelectOk"],["text","\/admin\/menu\/remplipathid"]],"defaults":[],"requirements":[],"hosttokens":[]},"point_web_admin_delete_file":{"tokens":[["text","\/admin\/delete_file"]],"defaults":[],"requirements":[],"hosttokens":[]}}

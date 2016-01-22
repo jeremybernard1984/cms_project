@@ -1,0 +1,15 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: db609093808.db.1and1.com
+    database_port: 3306
+    database_name: db609093808
+    database_user: dbo609093808
+    database_password: Sdk56six
+
+    mailer_transport: smtp
+    mailer_host: smtp.gmail.com
+    mailer_user: jeremy.bernard.breizh@gmail.com
+    mailer_password: 19071984
+    secret: ThisTokenIsNotSoSecretChangeIt
+    mail_to: jeremy.bernard.breizh@gmail.com
+    base: 'http://jeremy-bernard.info/my_project/'

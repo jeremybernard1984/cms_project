@@ -1,0 +1,15 @@
+
+all_products:
+    path:     /all_products
+    defaults: { _controller: "PointWebProductBundle:Default:allProducts" }
+
+product_of_category:
+    path:     /{id}/product_category/{page}
+    defaults:
+             _controller: "PointWebProductBundle:Default:productOfCategory"
+             page: 1
+
+product_detail:
+    path:     /{id}/product_detail
+    defaults: { _controller: PointWebProductBundle:Default:productDetail }
+

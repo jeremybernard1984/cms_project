@@ -1,0 +1,40 @@
+admin_partner_category:
+    path:     /{page}/list
+    defaults:
+        _controller: "PointWebPartnerBundle:PartnerCategory:index"
+        page: 1
+
+admin_partner_category_show:
+    path:     /{id}/show
+    defaults: { _controller: "PointWebPartnerBundle:PartnerCategory:show" }
+
+admin_partner_category_new:
+    path:     /new
+    defaults: { _controller: "PointWebPartnerBundle:PartnerCategory:new" }
+
+admin_partner_category_create:
+    path:     /create
+    defaults: { _controller: "PointWebPartnerBundle:PartnerCategory:create" }
+    methods:  POST
+
+admin_partner_category_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PointWebPartnerBundle:PartnerCategory:edit" }
+
+admin_partner_category_update:
+    path:     /{id}/update
+    defaults: { _controller: "PointWebPartnerBundle:PartnerCategory:update" }
+    methods:  [POST, PUT]
+
+admin_partner_category_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PointWebPartnerBundle:PartnerCategory:delete" }
+    methods:  [POST, DELETE]
+
+admin_partner_category_submenu:
+    path:     /submenu/{id}
+    defaults: { _controller: "PointWebPartnerBundle:PartnerCategory:subMenu" }
+    methods:  [GET]
+admin_partner_category_sort:
+    path:     /{id}/sort
+    defaults: { _controller: "PointWebPartnerBundle:PartnerCategory:sort" }

@@ -1,0 +1,10 @@
+<div align="center">
+    <a href="{{ path("point_web_app_homepage") }}">
+        {% if logo %}
+            <!---->
+            <img src="{{ logo.getWebPath(base) }}" alt="{{ logo.name }}">
+        {% else %}
+            Pas de logo
+        {% endif %}
+    </a>
+</div>

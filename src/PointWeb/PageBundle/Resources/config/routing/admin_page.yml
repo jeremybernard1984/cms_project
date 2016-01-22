@@ -1,0 +1,35 @@
+admin_page:
+    path:     /{page}/list
+    defaults:
+        _controller: "PointWebPageBundle:Page:index"
+        page: 1
+
+admin_page_show:
+    path:     /{id}/show
+    defaults: { _controller: "PointWebPageBundle:Page:show" }
+
+admin_page_new:
+    path:     /new
+    defaults: { _controller: "PointWebPageBundle:Page:new" }
+
+admin_page_create:
+    path:     /create
+    defaults: { _controller: "PointWebPageBundle:Page:create" }
+    methods:  POST
+
+admin_page_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PointWebPageBundle:Page:edit" }
+
+admin_page_update:
+    path:     /{id}/update
+    defaults: { _controller: "PointWebPageBundle:Page:update" }
+    methods:  [POST, PUT]
+
+admin_page_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PointWebPageBundle:Page:delete" }
+    methods:  [POST, DELETE]
+admin_page_sort:
+    path:     /{id}/sort
+    defaults: { _controller: "PointWebPageBundle:Page:sort" }

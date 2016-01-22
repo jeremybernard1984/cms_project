@@ -1,0 +1,69 @@
+{% extends 'PointWebAppBundle::base.html.twig' %}
+{% block content %}
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                {{ current_menu.title }}
+            </h1>
+            {#{ knp_menu_render('breadcrumb', {'currentClass': 'active'}) }#}
+            <ol class="breadcrumb">
+                <li><a href="{{ path('point_web_app_homepage')}}">Accueil</a></li>
+                <li class="active">{{ current_menu.title }}</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <p>{{ current_menu.description | raw }}</p>
+            <div id="carouselPage" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators ">
+                    {% for picture in current_menu.pictures %}
+                        <li data-target="#carouselPage" data-slide-to="{{  loop.index0 }}" {% if loop.index0 == 0 %}class ="active"{% endif %}></li>
+                    {% endfor %}
+                </ol>
+                <div class="carousel-inner">
+                    {% for picture in current_menu.pictures %}
+                        <div class="item {% if loop.index0 == 0 %}active{% endif %}">
+                            <img src="{{ asset(picture.getWebPath(base)) }}">
+                            <div class="carousel-caption">
+                                <h2>{{ picture.name }}</h2>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <a class="left carousel-control" href="#carouselPage" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carouselPage" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-9 col-sm-6">
+            <div class="panel-group" id="accordion">
+
+                {% for entity in entities %}
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ loop.index }}">
+                                {{ entity.title }}
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse{{ loop.index }}" class="panel-collapse collapse {% if loop.index == 1 %}in{% endif %}">
+                        <div class="panel-body">
+                            {{ entity.answer  | raw }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+         </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,6 @@
+Listing des category :</br>
+<ul>
+    {% for item in category %}
+        <li>{{ item.id }} - {{ item.title }} <a href="{{ path('category_show',  { 'id': item.id }) }}">Voir</a> </li>
+    {% endfor %}
+</ul>

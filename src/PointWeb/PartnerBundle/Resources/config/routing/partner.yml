@@ -1,0 +1,11 @@
+all_partners:
+    path:     /all_partners
+    defaults: { _controller: "PointWebPartnerBundle:Default:allPartners" }
+
+partner_of_category:
+    path:     /{id}/partner_category
+    defaults: { _controller: "PointWebPartnerBundle:Default:partnerOfCategory" }
+
+partner_detail:
+    path:     /{id}/partner_detail
+    defaults: { _controller: PointWebPartnerBundle:Default:partnerDetail }

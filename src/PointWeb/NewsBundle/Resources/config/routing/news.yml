@@ -1,0 +1,8 @@
+all_news:
+    path:     /all_news
+    defaults: { _controller: PointWebNewsBundle:Default:allNews }
+
+news_detail:
+    path:     /{id}/news_detail
+    defaults: { _controller: PointWebNewsBundle:Default:newsDetail }
+

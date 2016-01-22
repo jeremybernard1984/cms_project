@@ -1,0 +1,10 @@
+all_guestbook:
+    path:     /{page}/all_guestbook
+    defaults:
+            _controller: "PointWebGuestbookBundle:Default:allGuestbook"
+            page: 1
+
+guestbook_create_invisible:
+    path:     /create
+    defaults: { _controller: "PointWebGuestbookBundle:Default:create" }
+    methods:  POST

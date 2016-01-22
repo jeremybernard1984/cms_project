@@ -1,0 +1,18 @@
+<div class="col-md-4 col-sm-6 page-header">
+    <div class="panel panel-default text-center">
+        <div class="panel-heading">
+            <a href="{{ path('news_detail', {'id':entity.id}) }}">
+                {% if entity.pictures|length >0 %}
+                    <img class="img-responsive img-hover" alt="{{ entity.pictures[0].name }}" src="{{ asset(entity.pictures[0].getWebPath(base)) }}" data-image="{{ asset(entity.pictures[0].getWebPath(base)) }}">
+                {% else %}
+                    <img class="img-responsive img-hover" src="{{ asset('images/sans_image_700x450.jpg') }}" alt="http://placehold.it/700x450">
+                {% endif %}
+            </a>
+        </div>
+        <div class="panel-body">
+            <h4>{{ entity.title }}</h4>
+            <p>{{ entity.resum | truncate(250, false, '...') | raw }}</p>
+            <a class="btn btn-primary btn-block" href={{ path('news_detail', {'id':entity.id}) }}>En savoir plus</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+admin_map:
+    path:     /{page}/list
+    defaults:
+        _controller: "PointWebMapBundle:Map:index"
+        page: 1
+
+admin_map_show:
+    path:     /{id}/show
+    defaults: { _controller: "PointWebMapBundle:Map:show" }
+
+admin_map_new:
+    path:     /new
+    defaults: { _controller: "PointWebMapBundle:Map:new" }
+
+admin_map_create:
+    path:     /create
+    defaults: { _controller: "PointWebMapBundle:Map:create" }
+    methods:  POST
+
+admin_map_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PointWebMapBundle:Map:edit" }
+
+admin_map_update:
+    path:     /{id}/update
+    defaults: { _controller: "PointWebMapBundle:Map:update" }
+    methods:  [POST, PUT]
+
+admin_map_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PointWebMapBundle:Map:delete" }
+    methods:  [POST, DELETE]
+
+admin_map_sort:
+    path:     /{id}/sort
+    defaults: { _controller: "PointWebMapBundle:Map:sort" }

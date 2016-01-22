@@ -1,0 +1,15 @@
+{% extends 'PointWebAppBundle::base.html.twig' %}
+{% block content %}
+Listing des pages :</br>
+<ul>
+    {% for item in listpage %}
+        <li>
+            ID : {{ item.id }}</br>
+            Titre : {{ item.title }}</br>
+            Description : {{ item.content }}</br>
+            Date de création : le {{ item.createDate|date('d-m-Y') }}</br>
+            <a href="{{ path('page_show',  { 'id': item.id }) }}">Voir le détail</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

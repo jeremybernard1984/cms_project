@@ -1,0 +1,6 @@
+Listing des Produits :</br>
+<ul>
+    {% for item in product %}
+        <li>{{ item.id }} - {{ item.title }} <a href="">Voir</a> </li>
+    {% endfor %}
+</ul>

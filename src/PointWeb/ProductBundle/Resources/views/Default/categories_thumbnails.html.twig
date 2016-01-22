@@ -1,0 +1,24 @@
+<!-- Portfolio Section -->
+<div class="row">
+    {% for entity in entities %}
+        {% if entity.parentId %}
+        <div class="col-md-4 col-sm-6 img-portfolio">
+            <a href="{{ path('product_of_category', {'id': entity.id}) }}">
+                <div class="hovereffect">
+                    {% if entity.pictures|length >0 %}
+                        <img class="img-responsive" src="{{ asset(entity.pictures[0].getWebPath(base)) }}" alt="{{ entity.pictures[0].name }}">
+                    {% else %}
+                        <img class="img-responsive img-portfolio" src="{{ asset('images/sans_image_700x450.jpg') }}" alt="http://placehold.it/700x450">
+                    {% endif %}
+                    <div class="overlay">
+                        <h2>{{ entity.title }}</h2>
+                        <a class="info" href="{{ path('product_of_category', {'id': entity.id}) }}">Voir les voyages</a>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endif %}
+    {% endfor %}
+
+</div>
+<!-- /.row -->

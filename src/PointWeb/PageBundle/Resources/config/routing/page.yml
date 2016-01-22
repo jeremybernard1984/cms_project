@@ -1,0 +1,8 @@
+all_pages:
+    path:     /all_pages
+    defaults: { _controller: "PointWebPageBundle:Default:allPages" }
+
+page_detail:
+    path:     /{id}/page_detail
+    defaults: { _controller: "PointWebPageBundle:Default:pageDetail" }
+

@@ -1,0 +1,36 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.css') }}" type="text/css" media="all"/>
+<!-- MetisMenu CSS -->
+<link rel="stylesheet" href="{{ asset('bower_components/metisMenu/dist/metisMenu.css') }}" type="text/css" media="all"/>
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="{{ asset('bower_components/font-awesome/css/font-awesome.css') }}" type="text/css" media="all"/>
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="{{ asset('bower_components/bootstrap-datepicker/datepicker.css') }}" type="text/css" media="all"/>
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="{{ asset('bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css') }}" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link rel="stylesheet" href="{{ asset('bower_components/datatables-responsive/css/dataTables.responsive.css') }}" rel="stylesheet">
+<!-- fancybox -->
+<link rel="stylesheet" href="{{ asset('dist/css/jquery.fancybox.css') }}" type="text/css" media="all"/>
+<!-- custom de style bootstrap : http://www.lavishbootstrap.com/-->
+{% if backgroundStyle or backgroundStyle != 0 %}
+<link rel="stylesheet" href="{{ asset('dist/css/bootstrap_custom/lavish-bootstrapv' ~ backgroundStyle ~ '.css') }}" type="text/css" media="all"/>
+{% endif %}
+<!-- loader -->
+<link rel="stylesheet" href="{{ asset('dist/css/loader.css') }}" type="text/css" media="all"/>
+<!-- Custom CSS-->
+<link rel="stylesheet" href="{{ asset('dist/css/sb-admin-2.css') }}" type="text/css" media="all"/>
+
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}ESPACE D'ADMINISTRATION{% endblock %}</title>
+    {{ render(controller("PointWebAdminBundle:Default:headerAdmin")) }}
+    <!--
+    { include 'PointWebAdminBundle::_header.html.twig' %}
+    -->
+</head>
+<body>
+<div id="wrapper">
+    <div class="container-fluid" id="chargement">
+        <div class="overlays"></div>
+        Chargement...
+        <span id="chargement-infos" class="bg-primary"></span>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        {{ render(controller("PointWebAdminBundle:Default:topAdmin")) }}
+        {{ render(controller("PointWebAdminBundle:Default:leftAdmin")) }}
+        <!--
+        { include 'PointWebAdminBundle::_top_admin.html.twig' with {'clientName' : entity.clientName} %}
+        { include 'PointWebAdminBundle::_left_admin.html.twig' %}
+        -->
+    </nav>
+    <div id="page-wrapper">
+        {% block body %}
+            <!-- /.row -->
+            <div class="row">
+                {% block body_content %}
+                    {% block content_left %}
+                    {% endblock %}
+                    {% block content_right %}{% endblock %}
+                {% endblock %}
+            </div>
+            <!-- /.row -->
+        {% endblock %}
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+{% block javascripts %}
+    {% include 'PointWebAdminBundle::_js.html.twig' %}
+{% endblock %}
+</body>
+<footer>
+    {% block footer %}
+
+    {% endblock %}
+</footer>
+</html>

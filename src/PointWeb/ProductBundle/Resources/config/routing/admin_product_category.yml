@@ -1,0 +1,47 @@
+admin_product_category:
+    path:     /
+    defaults: { _controller: "PointWebProductBundle:ProductCategory:index" }
+
+admin_product_category_show:
+    path:     /{id}/show
+    defaults: { _controller: "PointWebProductBundle:ProductCategory:show" }
+
+admin_product_category_new:
+    path:     /new
+    defaults: { _controller: "PointWebProductBundle:ProductCategory:new" }
+
+admin_product_category_create:
+    path:     /create
+    defaults: { _controller: "PointWebProductBundle:ProductCategory:create" }
+    methods:  POST
+
+admin_product_category_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PointWebProductBundle:ProductCategory:edit" }
+
+admin_product_category_update:
+    path:     /{id}/update
+    defaults: { _controller: "PointWebProductBundle:ProductCategory:update" }
+    methods:  [POST, PUT]
+
+admin_product_category_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PointWebProductBundle:ProductCategory:delete" }
+    methods:  [POST, DELETE]
+
+admin_product_category_submenu:
+    path:     /submenu/{id}
+    defaults: { _controller: "PointWebProductBundle:ProductCategory:subMenu" }
+    methods:  [GET]
+
+admin_product_category_sort:
+    path:     /{id}/sort
+    defaults: { _controller: "PointWebProductBundle:ProductCategory:sort" }
+
+admin_product_category_down:
+    pattern: /{id}/down
+    defaults:  { _controller: "PointWebProductBundle:ProductCategory:down" }
+
+admin_product_category_up:
+    pattern: /{id}/up
+    defaults:  { _controller: "PointWebProductBundle:ProductCategory:up" }

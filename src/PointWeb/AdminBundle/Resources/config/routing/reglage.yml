@@ -1,0 +1,30 @@
+admin_reglage:
+    path:     /
+    defaults: { _controller: "PointWebAdminBundle:Reglage:index" }
+
+admin_reglage_show:
+    path:     /{id}/show
+    defaults: { _controller: "PointWebAdminBundle:Reglage:show" }
+
+admin_reglage_new:
+    path:     /new
+    defaults: { _controller: "PointWebAdminBundle:Reglage:new" }
+
+admin_reglage_create:
+    path:     /create
+    defaults: { _controller: "PointWebAdminBundle:Reglage:create" }
+    methods:  POST
+
+admin_reglage_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PointWebAdminBundle:Reglage:edit" }
+
+admin_reglage_update:
+    path:     /{id}/update
+    defaults: { _controller: "PointWebAdminBundle:Reglage:update" }
+    methods:  [POST, PUT]
+
+admin_reglage_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PointWebAdminBundle:Reglage:delete" }
+    methods:  [POST, DELETE]

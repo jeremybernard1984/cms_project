@@ -1,0 +1,17 @@
+<!-- Footer -->
+<footer>
+        <div class="row footer">
+            <div class="col-lg-6">
+                <p>Copyright &copy; {{ "now"|date("Y") }}</p>
+            </div>
+            <div class="text-right col-lg-6">
+                <p>
+                    <a href="{{ path("page_detail",  { 'id': 2 })  }}">Mentions légales</a> |
+                    <a href="{{ path("point_web_app_contact") }}">contact</a> |
+                    <a href="{{ path("point_web_admin_homepage") }}">
+                        Log in <span class="glyphicon glyphicon-log-in"></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+</footer>

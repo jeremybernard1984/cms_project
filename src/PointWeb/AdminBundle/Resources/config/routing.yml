@@ -1,0 +1,24 @@
+point_web_admin_admin_menu:
+    resource: "@PointWebAdminBundle/Resources/config/routing/menu.yml"
+    prefix:   /menu
+point_web_admin_reglage:
+    resource: "@PointWebAdminBundle/Resources/config/routing/reglage.yml"
+    prefix:   /reglage
+
+point_web_admin_homepage:
+    path:     /
+    defaults: { _controller: PointWebAdminBundle:Default:index }
+
+point_web_admin_update:
+    path:     /upload
+    defaults: { _controller: PointWebAdminBundle:Default:upload }
+
+point_web_admin_user_entity:
+    path:     /
+    defaults: { _controller: PointWebAdminBundle:Default:userEntity }
+
+point_web_admin_delete_file:
+    path:     /delete_file
+    defaults: { _controller: "PointWebAdminBundle:Default:deletefile" }
+    options:
+            expose: true

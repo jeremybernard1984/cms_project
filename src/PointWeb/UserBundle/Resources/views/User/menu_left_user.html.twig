@@ -1,0 +1,27 @@
+<div class="left_user bg-gris">
+    {% if user.image %}
+        <img class="img-thumbnail thumbnailmenuleft" src="{{ absolute_url(asset(user.image.AssetPath)) }}" alt="{{ user.image.name }}">
+    {% else %}
+        <img class="img-thumbnail thumbnailmenuleft" src="{{ absolute_url(asset('images/default-user-icon-profile.png')) }}" alt="{{ user.username }}">
+    {% endif %}
+    <div class="left_user_txt">
+        {{ user.firstName }} {{ user.lastName }}<br>
+        <span class="rolesLeft">
+            {% for role in user.roles %}
+                {{ role }}<br>
+            {% endfor %}
+        </span>
+    <div class="btn-group">
+        <a class="btn btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Messages" href="#" disabled="disabled">
+            <i class="fa fa-envelope"></i>
+        </a>
+        <a class="btn btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Éditer" href="{{ path('admin_user_edit', {'id':user.id}) }}">
+            <i class="fa fa-user"></i>
+        </a>
+        <a class="btn btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Déconnecter" href="{{ path("fos_user_security_logout") }}">
+            <i class="fa fa-power-off"></i>
+        </a>
+    </div>
+    </div>
+    <div style="clear: both"></div>
+</div>

@@ -1,0 +1,73 @@
+{% extends 'PointWebAdminBundle::base.html.twig' %}
+
+{% block content_right %}
+    <h1>Modification du commentaire</h1>
+    {{ form_start(edit_form, {'attr': {'class':'form-horizontal' }}) }}
+    <fieldset>
+
+        <div class="form-group">
+            <div class="col-lg-2 text-right">
+            {{ form_label(edit_form.title) }}
+            </div>
+            <div class="col-lg-10">
+                {{ form_errors(edit_form.title) }}
+                {{ form_widget(edit_form.title) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2 text-right">
+            {{ form_label(edit_form.firstname) }}
+            </div>
+            <div class="col-lg-10">
+                {{ form_errors(edit_form.firstname) }}
+                {{ form_widget(edit_form.firstname) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2 text-right">
+            {{ form_label(edit_form.email) }}
+            </div>
+            <div class="col-lg-10">
+                {{ form_errors(edit_form.email) }}
+                {{ form_widget(edit_form.email) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2 text-right">
+            {{ form_label(edit_form.comment) }}
+            </div>
+            <div class="col-lg-10 text-right">
+                {{ form_errors(edit_form.comment) }}
+                {{ form_widget(edit_form.comment) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2 text-right">
+            {{ form_label(edit_form.notation) }}
+        </div>
+            <div class="col-lg-10">
+                {{ form_errors(edit_form.notation) }}
+                {{ form_widget(edit_form.notation) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2 text-right">
+            {{ form_label(edit_form.online) }}
+            </div>
+            <div class="col-lg-10">
+                {{ form_errors(edit_form.online) }}
+                {{ form_widget(edit_form.online) }}
+            </div>
+        </div>
+
+    </fieldset>
+
+
+    <div class="row submitBt">
+        <div style="float: left">
+            <a href="{{ path('admin_guestbook') }}" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Retour à la liste</a>
+        </div>
+        {{ form_end(edit_form) }}
+        {{ form(delete_form) }}
+    </div>
+{% endblock %}

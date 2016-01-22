@@ -1,0 +1,11 @@
+point_web_partner_admin:
+    resource: "@PointWebPartnerBundle/Resources/config/routing/admin_partner.yml"
+    prefix:   /admin/partner
+
+point_web_partner_category_admin:
+        resource: "@PointWebPartnerBundle/Resources/config/routing/admin_partner_category.yml"
+        prefix:   /admin/partner_category
+
+point_web_partner:
+    resource: "@PointWebPartnerBundle/Resources/config/routing/partner.yml"
+    prefix:   /partner
